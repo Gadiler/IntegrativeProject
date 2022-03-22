@@ -23,11 +23,17 @@ public class Report {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
+    private String title;
     private String description;
+
     @Enumerated(EnumType.ORDINAL)
     private Category reportCategory;
     @OneToOne
     private User reportUser;
+    @OneToOne
+    private Destination reportDest;
+
+
 
 
 }

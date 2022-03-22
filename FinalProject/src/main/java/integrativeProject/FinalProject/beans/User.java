@@ -9,7 +9,6 @@ package integrativeProject.FinalProject.beans;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,8 +23,14 @@ public class User {
     private int id;
     private String userName;
     private String password;
+    private String email;
+    private Type type;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Singular("oneReport")
-    private List<Report> reportsList = new ArrayList();
+    private List<Report> reportsList;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @Singular("favorite")
+    private List<Report> favoriteList;
 }

@@ -22,6 +22,7 @@ public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String countryName;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Singular("oneDestination")
